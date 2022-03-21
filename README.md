@@ -15,6 +15,8 @@ Image from [Infosys Consulting](https://www.infosysconsultinginsights.com/2020/0
 
 Problem: Traditional Rule-based systems generate a high number of false positives which uses a lot of resources for a banking institution. Goal: to reduce false positives, and uncover criminal activity that goes undetected with traditional rules-based systems.
 
+Traditional rules-based engines typically function off a set of mathematical conditions to determine what decisions to formulate. For example, if an account were to show more than N amount in N amount of days, issue a flag. The positive is that analysts can swiftly create and execute new rules based on past fraudulent transactions, thus making it easier to demonstrate to regulators why a specific transaction was flagged. The downsides on the contrary, outweigh such clarity and consistency. A clear set of conditions gives criminals guidelines to purposely avoid in order to go undetected, produces excessive false positives, must be regularly maintained, and disregards relationships between transactions - to name some of the issues.
+
 ---
 
 ## What's Being Created
