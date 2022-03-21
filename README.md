@@ -17,6 +17,11 @@ Problem: Traditional Rule-based systems generate a high number of false positive
 
 Traditional rules-based engines typically function off a set of mathematical conditions to determine what decisions to formulate. For example, if an account were to show more than N amount in N amount of days, issue a flag. The positive is that analysts can swiftly create and execute new rules based on past fraudulent transactions, thus making it easier to demonstrate to regulators why a specific transaction was flagged. The downsides on the contrary, outweigh such clarity and consistency. A clear set of conditions gives criminals guidelines to purposely avoid in order to go undetected, produces excessive false positives, must be regularly maintained, and disregards relationships between transactions - to name some of the issues.
 
+This is where machine learning models come in. ML models strengthen systems through reduced false positives, fewer false negatives, faster processing speed, and the ability to adapt and learn with continuous data. Here is how they work:
+1. Massive historical datasets regarding transactions are fed through algorithms to "train" the machine in detecting fraudulent transactions.
+2. ML algoritms use this training data to compare with expected values.
+3. 
+
 ---
 
 ## What's Being Created
