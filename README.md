@@ -5,9 +5,6 @@ UNCC Online FinTech Bootcamp Module 16 Project due by 11:59pm 3/27/2022
 
 Image from [Infosys Consulting](https://www.infosysconsultinginsights.com/2020/01/15/transforming-anti-money-laundering-and-kyc-controls-with-ai-part-i/)
 
----
-
-## Executive Summary
 
 ---
 
@@ -40,6 +37,7 @@ subset_fraction = 0.02
 subset = df.sample(frac=subset_fraction)
  ```
 
+We then created the [AML_Models](AML_Models.ipynb) notebook and ran a larger set of data through each of the top 3 machine learning models, as suggested by Lazy Predict's `LazyClassifier` function.
 
 ---
 
@@ -74,7 +72,27 @@ After running the `LazyClassifier` function from Lazy Predict module, we had a r
 
 ![](Images/lazypredict_results.png)
 
-We then used the top 3 models to run larger portions of the original dataset, and then set up a user interface using StreamLit to allow for a user to select which model they'd prefer to run.
+We then used the top 3 models to run larger portions of the original dataset. This is explained in more detail in the [ML Model Comparison Report](ML_model_comparison_report.md). Here are a few excerpts:
+
+* `AdaBoostClassifier`:
+<img src="Images/adaboost_scores.png"/>
+
+* `LinearSVC`:
+<img src="Images/linearsvc_scores.png"/>
+  
+* `LogisticRegression`:
+<img src="Images/logistic_regression_scores.png"/>
+
+We also executed the [AML Models](AML_models_for_Colab.ipynb) in Google Colab, as seen here:
+
+![](Images/google_colab_run.gif)
+
+---
+
+## Next Steps
+
+ - Develop a User Interface that allows for the input of financial transactions in order to predict if the transaction should be flagged as fraudulent, for further investigation, in real time.
+ - Apply Graph Analytics to the problem of Money Laundering in order to do a deep level link analysis between accounts, customers, businesses and other locations.
 
 ---
 
