@@ -19,12 +19,27 @@ Traditional rules-based engines typically function off a set of mathematical con
 
 This is where machine learning models come in. ML models strengthen systems through reduced false positives, fewer false negatives, faster processing speed, and the ability to adapt and learn with continuous data. Here is how they work:
 1. Massive historical datasets regarding transactions are fed through algorithms to "train" the machine in detecting fraudulent transactions.
-2. ML algoritms use this training data to compare with expected values.
+2. Machine Learning algorithms use this training data to compare with expected values.
 3. 
 
 ---
 
 ## What's Being Created
+
+We started with simulated financial data from [kaggle.com](https://www.kaggle.com/ealaxi/paysim1). The columns included information about banking transactions (type of transaction, amount, origination, destination, and whether it was fraudulent).
+
+We created a Jupyter Lab [notebook](AML_data_analyzer.ipynb) that performed the following:
+ 1. Loaded the original dataset of simulated financial transactions;
+ 2. Reduced the dataset for easier processing through Lazy Predict's `LazyClassifier` function. We took a random percentage of the original data. The file size was an issue loading to GitHub.
+ 3. Split, scaled, and upsampled the data.
+ 4. Fed through `LazyClassifier` to determine what models worked best with this data.
+ 
+Ultimately, we created a separate Jupyter [notebook](create_sample_subset.ipynb) to reduce the size of the dataset, using the pandas `sample` function to grab a specified `frac`tion of the dataset, as in these two lines of code:
+ ```python
+subset_fraction = 0.02
+subset = df.sample(frac=subset_fraction)
+ ```
+
 
 ---
 
@@ -36,9 +51,10 @@ Python libraries used:
 
  - [Pandas](https://pandas.pydata.org/pandas-docs/stable/) - *an open source, BSD-licensed library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language.*
  - [Pathlib](https://docs.python.org/3.7/library/pathlib.html) - *a library that enables consistent input and output of files from the main app.*
-  - [scikit-learn](https://scikit-learn.org/stable/user_guide.html) - *an open source machine learning library that supports supervised and unsupervised learning.*
- - [TensorFlow](https://www.tensorflow.org/) - *an end-to-end open source platform for machine learning.*
- - [Keras](https://keras.io/about/) - *a deep learning API written in Python, running on top of the machine learning platform TensorFlow.*
+ - [scikit-learn](https://scikit-learn.org/stable/user_guide.html) - *an open source machine learning library that supports supervised and unsupervised learning.*
+ - [imbalanced-learn](https://pypi.org/project/imbalanced-learn/) *a python package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance.*
+ - [Lazy Predict](https://lazypredict.readthedocs.io/en/latest/) - *helps build a lot of basic models without much code and helps understand which models works better without any parameter tuning.*
+ - [Matplotlib](https://matplotlib.org/) *a comprehensive library for creating static, animated, and interactive visualizations in Python.*
 
 ### Installation Guide
 
@@ -46,12 +62,19 @@ prior to running these libraries, install them from the command line:
   - pandas: `conda install pandas` or `pip install pandas`  
   - pathlib: `pip install pathlib`
   - sklearn: `pip install-U scikit-learn` - included in conda
-  - TensorFlow: `pip install tensorflow` or `pip install --upgrade tensorflow`
-  - Keras: included in TensorFlow
+  - imblearn: `pip install -U imbalanced-learn` or `conda install -c conda-forge imbalanced-learn`
+  - Lazy Predict: `pip install lazypredict`
+  - matplotlib: `conda install matplotlib` or `pip install matplotlibg`
   
 ---
   
 ## Results
+
+After running the `LazyClassifier` function from Lazy Predict module, we had a ranking of which models did best at predicting fraud:
+
+![](Images/lazypredict_results.png)
+
+We then used the top 3 models to run larger portions of the original dataset, and then set up a user interface using StreamLit to allow for a user to select which model they'd prefer to run.
 
 ---
 
